@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>eurotopound</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-list inset>
+        <ion-item>
+            <ion-label color="primary">{{ source }}</ion-label>
+            <ion-input (ionChange)="exchange()" [(ngModel)]="input" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+           
+        </ion-item>
+    </ion-list>
+</ion-card>
+
+<ion-card>
+  <ion-list>
+      <ion-item *ngFor="let output of outputs">
+          <ion-label color="primary">{{ output.name }}</ion-label>
+          <div item-content>{{ output.value | number:'1.2-2' }}</div>                
+      </ion-item>
+  </ion-list>
+</ion-card>
+
+<ion-card>
+  <ion-list>
+      <ion-item *ngFor="let output of outputs">
+          <ion-label color="primary">Today rate is</ion-label>
+          <div item-content>{{ output.rate | number:'1.2-2' }}</div>                
+      </ion-item>
+  </ion-list>
+</ion-card>
+
+</ion-content>
