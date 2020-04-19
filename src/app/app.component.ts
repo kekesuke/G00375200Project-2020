@@ -11,7 +11,6 @@ import {CurrencyService} from './Services/currency.service'
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  updateInterval:number = 10000 * 60 * 5; // 50 minutes
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -19,17 +18,12 @@ export class AppComponent {
     private currencyService:CurrencyService
   ) {
     this.initializeApp();
-    this.updateCurrencies();//calling the method and retrieving data from httpclient
   }
-  updateCurrencies() { // updateing the currency
-    this.currencyService.updateCurrencies();
-    setTimeout(() => { this.updateCurrencies() }, this.updateInterval);
-}
+
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
-      
+      this.splashScreen.hide();     
     });
   }
 }

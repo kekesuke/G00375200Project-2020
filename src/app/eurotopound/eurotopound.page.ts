@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import{ CurrencyService } from '../Services/currency.service';
-import{ HttpClient }from '@angular/common/http';
 
 @Component({
   selector: 'app-eurotopound',
@@ -8,26 +7,25 @@ import{ HttpClient }from '@angular/common/http';
   styleUrls: ['./eurotopound.page.scss'],
 })
 export class EurotopoundPage implements OnInit {
-  CurrencyData:any=[];
-  constructor(private currency:CurrencyService, private httpClient:HttpClient) { }
-
-  public source = "Euro";
-    public target;
-    public input = null;
-    public outputs = [];
+  source = "Euro";
+  private input:number = null;
+  private outputs:any = [];
+  
+  constructor(private currency:CurrencyService) { }
+  
   ngOnInit() {
+    this.currency.updateCurrencies();
   }
 
 
 exchange() {
-    this.currency.getCurrencies()
+    this.currency.getCurrencies('EUR')
         .then(rates => {
             this.outputs = [];
-           let currency = 'GBP';
                 this.outputs.push({
-                    name  : currency ,
-                    value : (this.input * rates.rates.GBP),
-                    rate : rates.rates.GBP
+                    name  : 'GBP' ,
+                    value : (this.input *  rates.rates['GBP']),
+                    rate : rates.rates['GBP']
             });
     
         });

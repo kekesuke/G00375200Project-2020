@@ -24,6 +24,18 @@ const routes: Routes = [
     path: 'morecurrency',
     loadChildren: () => import('./morecurrency/morecurrency.module').then( m => m.MorecurrencyPageModule)
   },
+  {
+    path: 'bankslocation',
+    loadChildren: () => import('./pages/bankslocation/bankslocation.module').then( m => m.BankslocationPageModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'schedule',
+    loadChildren: () => import('./pages/schedule/schedule.module').then( m => m.SchedulePageModule)
+  },
 ];
 
 @NgModule({
