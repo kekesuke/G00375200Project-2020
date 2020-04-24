@@ -1,0 +1,19 @@
+
+<ion-content>
+  <div class="bg-image"></div>
+  <div class="bg-text">
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title class="noteslist">
+        Ttitle: {{note.title}}
+      </ion-card-title>
+      <br>
+      <div class="note-date">Date: {{note.date | date: 'dd/MM/yyyy H:mm' }}</div>
+      <hr/>
+      <div class="noteslist">Content: {{note.content}}.</div>
+    </ion-card-content>
+  </ion-card>
+  <ion-button class="deletebutton" color="danger" block (click)="deleteNote(note.createDate)"> <ion-icon slot="icon-only" name="trash"></ion-icon></ion-button>
+  </div>
+</ion-content>
+

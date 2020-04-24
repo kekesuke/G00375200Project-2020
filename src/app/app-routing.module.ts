@@ -5,26 +5,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
-    path: 'eurotopound',
-    loadChildren: () => import('./eurotopound/eurotopound.module').then( m => m.EurotopoundPageModule)
-  },
-  {
-    path: 'poundtoeuro',
-    loadChildren: () => import('./poundtoeuro/poundtoeuro.module').then( m => m.PoundtoeuroPageModule)
-  },
-  {
-    path: 'eurotousd',
-    loadChildren: () => import('./eurotousd/eurotousd.module').then( m => m.EurotousdPageModule)
-  },
-  {
-    path: 'usdtoeuro',
-    loadChildren: () => import('./usdtoeuro/usdtoeuro.module').then( m => m.UsdtoeuroPageModule)
-  },
-  {
-    path: 'morecurrency',
-    loadChildren: () => import('./morecurrency/morecurrency.module').then( m => m.MorecurrencyPageModule)
-  },
-  {
     path: 'bankslocation',
     loadChildren: () => import('./pages/bankslocation/bankslocation.module').then( m => m.BankslocationPageModule)
   },
@@ -35,6 +15,14 @@ const routes: Routes = [
   {
     path: 'schedule',
     loadChildren: () => import('./pages/schedule/schedule.module').then( m => m.SchedulePageModule)
+  },
+  {
+    path: 'addnewnote',
+    loadChildren: () => import('./pages/addnewnote/addnewnote.module').then( m => m.AddnewnotePageModule)
+  },
+  {
+    path: 'viewnote',
+    loadChildren: () => import('./pages/viewnote/viewnote.module').then( m => m.ViewnotePageModule)
   },
 ];
 

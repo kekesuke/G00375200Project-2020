@@ -10,12 +10,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms' //Exports the required infrastructure and directives for reactive forms, making them available for import by NgModules that import this module.
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-  HttpClientModule,  IonicStorageModule.forRoot()],
+  HttpClientModule,FormsModule, ReactiveFormsModule, IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,

@@ -1,19 +1,12 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Calendar Examples
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-
-    <ion-calendar [(ngModel)]="date"
-      (onChange)="onChange($event)"
-      [type]="type"
-      [format]="'YYYY-MM-DD'">
-    </ion-calendar>
-
+  <div class="bg-image"></div>
+  <div class="bg-text">
+  <ion-title></ion-title>
+  <ion-list class="noteslist">
+    <ion-button class="notesbutton" shape="round" color="light" ion-item *ngFor="let note of notes | async" (click)="getNote(note.createDate)">
+      <span>{{note.title}}</span> {{note.date | date: 'dd/MM/yyyy H:mm' }}
+    </ion-button>
+  </ion-list>
+  <ion-button class="addbutton" shape="round" color="danger" (click)="addNote()">+</ion-button>
   </div>
 </ion-content>

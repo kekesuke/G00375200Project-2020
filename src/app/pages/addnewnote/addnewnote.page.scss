@@ -1,0 +1,45 @@
+
+  .bg-image {
+    /* The image used */
+    background-image: url('../../assets/imgs/bg.jpg');
+  
+    /* Add the blur effect */
+    filter: blur(6px);
+    -webkit-filter: blur(6px);
+  
+    /* Full height */
+    height: 100%;
+    width: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Position text in the middle of the page/image */
+  .bg-text {
+    /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    transform: translate(-20%, -20%);
+    width: 100%;
+    padding: 20px;
+  }
+
+.noteslist {     
+  color: black;
+  font-weight: bold;
+} 
+
+.title { 
+  margin-top: 10%;
+  position: relative;
+  background: transparent;
+  text-align: center;
+  border-radius: 25px; 
+  color: rgb(194, 211, 39);
+}

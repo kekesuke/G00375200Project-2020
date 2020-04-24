@@ -1,7 +1,102 @@
-<ion-content [fullscreen]="true" >
-<ion-button [routerLink]="['/eurotopound']">Euros to Paunds</ion-button> 
-<ion-button [routerLink]="['/poundtoeuro']">Pounds to Euros</ion-button>
-<ion-button [routerLink]="['/eurotousd']">Euros to usd</ion-button> 
-<ion-button [routerLink]="['/usdtoeuro']">USD to Euro</ion-button>
-<ion-button [routerLink]="['/morecurrency']">More Currency</ion-button>
+<ion-content>
+  <div class="bg-image"></div>
+  <div class="bg-text">
+    <div class="title">Currency Converter</div>
+    <ion-list class="from">
+      <ion-label>From</ion-label>
+      <ion-select [(ngModel)]="from" placeholder="Select">
+        <ion-select-option value="USD">USD</ion-select-option>
+        <ion-select-option value="EUR">EUR</ion-select-option>
+        <ion-select-option value="JPY">JPY</ion-select-option>
+        <ion-select-option value="BGN">BGN</ion-select-option>
+        <ion-select-option value="CZK">CZK</ion-select-option>
+        <ion-select-option value="DKK">DKK</ion-select-option>
+        <ion-select-option value="GBP">GBP</ion-select-option>
+        <ion-select-option value="HUF">HUF</ion-select-option>
+        <ion-select-option value="PLN">PLN</ion-select-option>
+        <ion-select-option value="RON">RON</ion-select-option>
+        <ion-select-option value="SEK">SEK</ion-select-option>
+        <ion-select-option value="CHF">CHF</ion-select-option>
+        <ion-select-option value="ISK">ISK</ion-select-option>
+        <ion-select-option value="NOK">NOK</ion-select-option>
+        <ion-select-option value="HRK">HRK</ion-select-option>
+        <ion-select-option value="RUB">RUB</ion-select-option>
+        <ion-select-option value="TRY">TRY</ion-select-option>
+        <ion-select-option value="AUD">AUD</ion-select-option>
+        <ion-select-option value="BRL">BRL</ion-select-option>
+        <ion-select-option value="CAD">CAD</ion-select-option>
+        <ion-select-option value="CNY">CNY</ion-select-option>
+        <ion-select-option value="HKD">HKD</ion-select-option>
+        <ion-select-option value="IDR">IDR</ion-select-option>
+        <ion-select-option value="ILS">ILS</ion-select-option>
+        <ion-select-option value="INR">INR</ion-select-option>
+        <ion-select-option value="KRW">KRW</ion-select-option>
+        <ion-select-option value="MXN">MXN</ion-select-option>
+        <ion-select-option value="MYR">MYR</ion-select-option>
+        <ion-select-option value="NZD">NZD</ion-select-option>
+        <ion-select-option value="PHP">PHP</ion-select-option>
+        <ion-select-option value="SGD">SGD</ion-select-option>
+        <ion-select-option value="THB">THB</ion-select-option>
+        <ion-select-option value="ZAR">ZAR</ion-select-option>
+      </ion-select>
+    </ion-list>
+
+    <ion-list class="to">
+      <ion-label>To</ion-label>
+      <ion-select placeholder="Select" (ionChange)="exchange()" [(ngModel)]="to" value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="USD">USD</ion-select-option>
+        <ion-select-option value="EUR">EUR</ion-select-option>
+        <ion-select-option value="JPY">JPY</ion-select-option>
+        <ion-select-option value="BGN">BGN</ion-select-option>
+        <ion-select-option value="CZK">CZK</ion-select-option>
+        <ion-select-option value="DKK">DKK</ion-select-option>
+        <ion-select-option value="GBP">GBP</ion-select-option>
+        <ion-select-option value="HUF">HUF</ion-select-option>
+        <ion-select-option value="PLN">PLN</ion-select-option>
+        <ion-select-option value="RON">RON</ion-select-option>
+        <ion-select-option value="SEK">SEK</ion-select-option>
+        <ion-select-option value="CHF">CHF</ion-select-option>
+        <ion-select-option value="ISK">ISK</ion-select-option>
+        <ion-select-option value="NOK">NOK</ion-select-option>
+        <ion-select-option value="HRK">HRK</ion-select-option>
+        <ion-select-option value="RUB">RUB</ion-select-option>
+        <ion-select-option value="TRY">TRY</ion-select-option>
+        <ion-select-option value="AUD">AUD</ion-select-option>
+        <ion-select-option value="BRL">BRL</ion-select-option>
+        <ion-select-option value="CAD">CAD</ion-select-option>
+        <ion-select-option value="CNY">CNY</ion-select-option>
+        <ion-select-option value="HKD">HKD</ion-select-option>
+        <ion-select-option value="IDR">IDR</ion-select-option>
+        <ion-select-option value="ILS">ILS</ion-select-option>
+        <ion-select-option value="INR">INR</ion-select-option>
+        <ion-select-option value="KRW">KRW</ion-select-option>
+        <ion-select-option value="MXN">MXN</ion-select-option>
+        <ion-select-option value="MYR">MYR</ion-select-option>
+        <ion-select-option value="NZD">NZD</ion-select-option>
+        <ion-select-option value="PHP">PHP</ion-select-option>
+        <ion-select-option value="SGD">SGD</ion-select-option>
+        <ion-select-option value="THB">THB</ion-select-option>
+        <ion-select-option value="ZAR">ZAR</ion-select-option>
+      </ion-select>
+    </ion-list>
+
+    <ion-list class="input">
+      <ion-label color="primary">{{ from }}</ion-label>
+      <ion-input placeholder="Enter value"(ionInput)="exchange()" [(ngModel)]="input" type="number"></ion-input>
+    </ion-list>
+
+    <ion-list class="outputrate" *ngFor="let output of outputs">
+      <ion-label color="danger">{{ output.name }}</ion-label>
+      <div item-content>{{ output.value | number:'1.2-2' }}</div>
+    </ion-list>
+
+
+    <ion-list class="outputrate" *ngFor="let output of outputs">
+      <ion-label color="primary">Today rate is</ion-label>
+      <div>{{ output.rate | number:'1.2-2' }} {{to}}</div>
+    </ion-list>
+
+
+  </div>
+
 </ion-content>
